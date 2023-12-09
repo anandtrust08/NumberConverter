@@ -1,18 +1,14 @@
 package cflox.app.numberconverter.controller;
 
-import cflox.app.numberconverter.service.NumeralService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import cflox.app.numberconverter.model.UserRequest;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
 @RequestMapping("/api")
-public class NumeralController {
-    private NumeralService numeralService;
+public interface NumeralController {
+   @PostMapping("/convert")
+   ResponseEntity<String> convert(@RequestBody UserRequest request);
 
-    @GetMapping("/{decimal}")
-    public String convertDecimalToRoman(@PathVariable int decimal){
-        return "";
-    }
 }
