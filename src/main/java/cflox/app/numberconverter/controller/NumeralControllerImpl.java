@@ -1,7 +1,7 @@
 package cflox.app.numberconverter.controller;
 
-import cflox.app.numberconverter.model.UserRequest;
-import cflox.app.numberconverter.model.UserResponse;
+import cflox.app.numberconverter.model.UserRequestDTO;
+import cflox.app.numberconverter.model.UserResponseDTO;
 import cflox.app.numberconverter.service.ConverterService;
 import cflox.app.numberconverter.service.ServiceFactory;
 import lombok.AllArgsConstructor;
@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-public class NumeralNumeralControllerImpl implements NumeralController {
+public class NumeralControllerImpl implements NumeralController {
 
     private final ServiceFactory serviceFactory;
 
     @Override
-    public ResponseEntity<UserResponse> convert(UserRequest request) {
+    public ResponseEntity<UserResponseDTO> convert(UserRequestDTO request) {
     ConverterService converterService = serviceFactory.getService(request.getConverterType());
     String result = converterService.convert(request.getInput());
-    UserResponse userResponse = new UserResponse();
-    userResponse.setOutput(result);
-        return ResponseEntity.ok(userResponse);
+    UserResponseDTO userResponseDTO = new UserResponseDTO();
+    userResponseDTO.setOutput(result);
+        return ResponseEntity.ok(userResponseDTO);
     }
 }

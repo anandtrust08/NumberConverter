@@ -5,7 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserRequest {
-    private String input;
-    private ConverterType converterType;
+public class UserResponseDTO {
+    private String output;
 }
