@@ -12,7 +12,7 @@ class DecimalToNumeralServiceTest {
     void testCovert() {
         String result = decimalService.convert("12");
 
-        assertEquals("decimal", result);
+        assertEquals("XII", result);
     }
 
 }

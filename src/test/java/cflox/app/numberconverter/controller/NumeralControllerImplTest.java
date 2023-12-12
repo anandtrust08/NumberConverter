@@ -25,13 +25,14 @@ public class NumeralControllerImplTest {
     @Test
     void testCallService() {
         UserRequestDTO request = new UserRequestDTO();
-        request.setInput("12");
+        request.setInput("19");
         request.setConverterType(ConverterType.DECIMAL_TO_ROMAN);
 
        when(serviceFactory.getService(ConverterType.DECIMAL_TO_ROMAN)).thenReturn(new DecimalToNumeralService());
 
         UserResponseDTO result = numeralController.convert(request).getBody();
 
-        assertEquals("decimal", result.getOutput());
+        assert result != null;
+        assertEquals("XIX", result.getOutput());
     }
 }
