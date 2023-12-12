@@ -1,6 +1,7 @@
 package cflox.app.numberconverter.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,9 +11,13 @@ public class BinaryToNumeralServiceTest {
 
     @Test
     void testCovert() {
-        String result = binaryService.convert("12");
+        String result = binaryService.convert("110");
 
-        assertEquals("binary", result);
+        assertEquals("VI", result);
     }
 
+    @Test
+    void testCovertErrorCase() {
+        assertThrows(NumberFormatException.class,() -> binaryService.convert("210"));
+    }
 }

@@ -1,8 +1,8 @@
 package cflox.app.numberconverter.util;
 
 
-public class DecimalToRoman {
-    private DecimalToRoman(){}
+public class NumeralUtility {
+    private NumeralUtility(){}
     public static String decimalToRoman(int number) {
         if (number < 1 || number > 3999) {
             throw new IllegalArgumentException("Number must be between 1 and 3999");
@@ -15,5 +15,9 @@ public class DecimalToRoman {
             }
         }
         return result.toString();
+    }
+
+    public static String binaryToRoman(String binaryNumber) {
+        return decimalToRoman(Integer.parseInt(binaryNumber, 2));
     }
 }
